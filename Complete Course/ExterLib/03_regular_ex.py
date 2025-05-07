@@ -10,7 +10,7 @@ if match:
     print("Start index:", match.start())
     print("End index:", match.end())
 
-Find all occurrences of a pattern
+# Find all occurrences of a pattern
 matches = re.findall("the", text, re.IGNORECASE) # Case-insensitive search
 print("Matches:", matches)
 
