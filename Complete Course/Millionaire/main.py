@@ -14,7 +14,7 @@ questions = [
 
 prizes = [100000, 320000, 400000, 450000,  500000, 1000000, 2000000, 3000000, 4000000, 5000000, 6000000]
 
-i = 0 
+i = 0
 for question in questions:
     print(question[0])
     print(f"a. {question[1]}")
@@ -29,6 +29,6 @@ for question in questions:
     else:
         print(f"Incorrect, the correct answer was {question[5]}")
         print("Better luck next time!")
-        break 
+        break
     print(f"You won {prizes[i]}")
-    i +=1    
+    i +=1
