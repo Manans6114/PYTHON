@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Email Analyzer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2em;
+      background-color: #f4f4f4;
+    }
+    h1 {
+      color: #333;
+      
+    }
+    textarea, input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 15px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 2em;
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 5px;
+    }
+    pre {
+      white-space: pre-wrap;
+    }
+
+    /* Spinner styles */
+    .spinner {
+      display: none;
+      margin-top: 1em;
+      width: 40px;
+      height: 40px;
+      border: 5px solid #ccc;
+      border-top: 5px solid #007BFF;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .center {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align: center;">Email Analyzer</h1>
+
+  <form id="emailForm">
+    <label for="subject">Subject:</label>
+    <input type="text" id="subject" name="subject" required />
+
+    <label for="body">Body:</label>
+    <textarea id="body" name="body" rows="6" required></textarea>
+
+    <button type="submit">Analyze</button>
+  </form>
+
+  <div class="center">
+    <div class="spinner" id="spinner"></div>
+  </div>
+
+  <div class="result" id="result" style="display: none;">
+    <h2>Analysis Result</h2>
+    <p><strong>Summary:</strong> <span id="summary"></span></p>
+    <p><strong>Sentiment:</strong> <span id="sentiment"></span></p>
+    <p><strong>Priority:</strong> <span id="priority"></span></p>
+    <p><strong>Preprocessed Text:</strong></p>
+    <pre id="preprocessed"></pre>
+  </div>
+
+  <script>
+    const form = document.getElementById('emailForm');
+    const spinner = document.getElementById('spinner');
+    const resultDiv = document.getElementById('result');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      spinner.style.display = 'block';
+      resultDiv.style.display = 'none';
+
+      const subject = document.getElementById('subject').value;
+      const body = document.getElementById('body').value;
+
+      try {
+        const response = await fetch('/analyze', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ subject, body })
+        });
+
+        const result = await response.json();
+        document.getElementById('summary').textContent = result.summary;
+        document.getElementById('sentiment').textContent = result.sentiment.label;
+        document.getElementById('priority').textContent = result.priority;
+        document.getElementById('preprocessed').textContent = result.preprocessed;
+        resultDiv.style.display = 'block';
+      } catch (error) {
+        alert("An error occurred while analyzing the email.");
+        console.error(error);
+      } finally {
+        spinner.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+ sample_emails = [
+        {
+            "id": 1,g
+            "subject": "Urgent: Project Deadline Approachin",
+            "body": "Hi Team,\n\nThis is an urgent reminder that the Project Alpha deadline is this Friday, EOD. We need to finalize all pending tasks and ensure the presentation is ready. Please provide an immediate update on your progress. Any delays will impact the entire project timeline. Your prompt attention is critical.\n\nBest regards,\nSarah"
+        },
+        {
+            "id": 2,
+            "subject": "Follow-up: Meeting Notes from Yesterday",
+            "body": "Hi All,\n\nHope you're well. Attached are the meeting notes from yesterday's discussion. Please review them at your convenience and let me know if there are any corrections or additions. We'll revisit these points next week. Thanks!\n\nCheers,\nJohn"
+        },
+        {
+            "id": 3,
+            "subject": "Great Job on the Q3 Report!",
+            "body": "Dear Alex,\n\nI just wanted to express my sincere appreciation for the excellent work on the Q3 financial report. The insights were incredibly valuable, and the presentation was flawless. This will significantly help our strategic planning. Keep up the fantastic work!\n\nBest,\nCEO"
+        },
+        {
+            "id": 4,
+            "subject": "Regarding your recent inquiry",
+            "body": "Dear Customer,\n\nThank you for reaching out. We have received your inquiry regarding order #12345. Our support team is currently reviewing your case, and we aim to respond within 24-48 business hours with a detailed resolution. We appreciate your patience.\n\nSincerely,\nSupport Team"
+        },
+        {
+            "id": 5,
+            "subject": "System Maintenance Notification",
+            "body": "Dear User,\n\nPlease be advised that our systems will undergo scheduled maintenance on Saturday, Oct 28th, from 10 PM to 2 AM UTC. During this period, some services may experience temporary interruptions. We apologize for any inconvenience this may cause. No action is required from your side.\n\nThank you for your understanding,\nIT Department"
+        },
+        {
+            "id": 6,
+            "subject": "Complaint: Service Disruption",
+            "body": "I am extremely disappointed with the recent service disruption. My internet has been down for over 12 hours, and I haven't received a clear explanation or an estimated fix time. This is unacceptable and impacting my work. I demand an immediate resolution and compensation.\n\nFrustrated User"
+        }
