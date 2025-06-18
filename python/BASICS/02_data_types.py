@@ -24,4 +24,4 @@ is_completed = True # can also be False
 print(is_completed)
 print(type(is_completed))
 
-# .
+# ..
