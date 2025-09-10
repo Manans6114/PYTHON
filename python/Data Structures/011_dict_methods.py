@@ -8,3 +8,4 @@ print(marks.values())
 # marks.clear()
 marks.pop("lily")
 print(marks)
+dgjgy
